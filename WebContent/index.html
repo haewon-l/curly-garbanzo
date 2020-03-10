@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>마스크 팔긴함?</title>
+	<!-- 합쳐지고 최소화된 최신 CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<!-- 부가적인 테마 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+	  <div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		  <span class="sr-only">navigation</span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		  <span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#">테스트용</a>
+	  </div>
+	  <div id="navbar" class="navbar-collapse collapse">
+		<form class="navbar-form navbar-right" action="https://8oi9s0nnth.apigw.ntruss.com/corona19-masks/v1/storesByAddr/json?" method="GET" autocomplete="off">
+		  <input type="text" name="address" class="form-control" placeholder="서울특별시 강남구 논현동" value="인천광역시 남동구">
+		</form>
+	  </div>
+	</div>
+  </nav>
+
+
+	<div id="map" style="width:100%;height:350px;"></div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=397df0809c4070562f59f692c4828322"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(4106984.9850730,4494569.5190530),
+			//인천 집 동네
+			level: 5
+		};
+
+		var map = new kakao.maps.Map(container, options);
+	
+		function resizeMap() {
+		var mapContainer = document.getElementById('map');
+		mapContainer.style.width = '650px';
+		mapContainer.style.height = '650px'; 
+		}
+
+		function relayout() {    
+		
+		// 지도를 표시하는 div 크기를 변경한 이후 지도가 정상적으로 표출되지 않을 수도 있습니다
+		// 크기를 변경한 이후에는 반드시  map.relayout 함수를 호출해야 합니다 
+		// window의 resize 이벤트에 의한 크기변경은 map.relayout 함수가 자동으로 호출됩니다
+		map.relayout();
+		}
+
+	</script>
+
+
+</body>
+</html>
